@@ -2,6 +2,7 @@ import fs from "node:fs";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 
 const LOG = "logs/tool-calls.jsonl";
+fs.mkdirSync("logs", { recursive: true });
 
 function summarize(args: any) {
   const out: Record<string, unknown> = {};

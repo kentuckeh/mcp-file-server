@@ -4,7 +4,7 @@ import fs from "node:fs";
 
 process.loadEnvFile();
 const session = process.argv[2];
-const out = `transcripts/session-${session}.txt`;
+const out = `evidence/transcripts/session-${session}.txt`;
 fs.writeFileSync(out, `# Session ${session} transcript\n`);
 const say = (s: string) => { console.log(s); fs.appendFileSync(out, s + "\n"); };
 

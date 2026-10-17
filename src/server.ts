@@ -8,7 +8,7 @@ import { WORKSPACE, resolveSafe } from "./sandbox.js";
 import { registerExtraTools } from "./extra-tools.js";
 import { withLogging } from "./logger.js";
 
-const PORT = 3000;
+const PORT = Number(process.env.PORT ?? 3000);
 try { process.loadEnvFile(); } catch {}
 const TOKEN = process.env.MCP_TOKEN;
 if (!TOKEN) { console.error("MCP_TOKEN is not set"); process.exit(1); }

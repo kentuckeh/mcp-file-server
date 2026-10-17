@@ -1,11 +1,12 @@
 {
   "name": "mcp-file-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "MCP file-server with sandbox, git tools and handoff files",
+  "main": "src/server.ts",
   "scripts": {
     "test": "tsx --test src/sandbox.test.ts",
-    "dev": "tsx src/server.ts"
+    "dev": "tsx src/server.ts",
+    "start": "tsx src/server.ts"
   },
   "keywords": [],
   "author": "",

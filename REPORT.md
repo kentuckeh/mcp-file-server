@@ -34,7 +34,14 @@ Task: build a Software Process Models notes pack across two sessions.
 - **Session 1:** Gemini CLI, a real LLM client, connected over HTTPS with the token and created the three outlines, INDEX.md and PLAN_LOG entries. It then hit the free-tier quota limit.
 - **Session 1 finish and Session 2:** because the quota did not reset in time, these were run by a scripted MCP client (client-demo.ts) written with the official SDK. Session 2 is a brand-new connection that reads only the four handoff files, finds checkpoint CP1, reviews all three outlines with str_replace, logs each step, adds CP2, and commits.
 - **Limitation:** Session 2 was scripted, not driven by an LLM, so it demonstrates that the handoff files and tools support resuming, but not an agent's own decision-making. With more quota, the next step is to run Session 2 with a real agent.
-- Evidence is in evidence/ and transcripts/: handoff files, tool-call log, session transcripts, workspace git log, and test output.
+- Evidence is in evidence/: handoff files, tool-call log, session transcripts, workspace git log, and test output.
 
 ## 5. Update: Session 3 by a real agent
-After the quota reset, Session 3 was run by Gemini CLI (a real LLM client) in a brand-new chat. It followed the start-of-session protocol in PROJECT_STATE.md, read the four handoff files, created notes/process-models/comparison.md, linked it from INDEX.md, logged its steps in PLAN_LOG.md, added checkpoint CP3, updated PROJECT_STATE.md, and committed with git_commit. This shows the handoff protocol works for an agent with no memory of earlier sessions. Session 2 remains scripted (see section 4). Transcript: evidence/gemini-session-3.txt.
+After the quota reset, Session 3 was run by Gemini CLI (a real LLM client) in a brand-new chat. It followed the start-of-session protocol in PROJECT_STATE.md, read the four handoff files, created notes/process-models/comparison.md, linked it from INDEX.md, logged its steps in PLAN_LOG.md, added checkpoint CP3, updated PROJECT_STATE.md, and committed with git_commit. This shows the handoff protocol works for an agent with no memory of earlier sessions. Session 2 remains scripted (see section 4). Transcript: evidence/transcripts/gemini-session-3.txt.
+
+## 6. Known limitations and next steps
+- Gemini's Session 1 chat text was not saved; its work is visible in evidence/logs/tool-calls.jsonl, PLAN_LOG.md and the git history.
+- The log mixes smoke tests, scripted runs and agent runs, so the call count is not one clean demo.
+- There is no append tool, so adding a log line costs a read plus a full rewrite. An append_file tool would cut those calls.
+- pm2 startup is not configured, so the server does not return after a reboot.
+- Next: per-user tokens, rate limiting, if_version locking, read_file size cap.
