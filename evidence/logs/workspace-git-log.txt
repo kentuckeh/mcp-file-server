@@ -1,0 +1,4 @@
+cc3575d Session 3: comparison table, checkpoint CP3
+374a7d4 Session 2: reviewed notes, checkpoint CP2
+6dc070d Session 1: process models outlines, checkpoint CP1
+f1f60a9 Initial handoff files
