@@ -1,0 +1,56 @@
+
+> mcp-file-server@1.0.0 test
+> tsx --test src/sandbox.test.ts
+
+TAP version 13
+# Subtest: allows a normal file
+ok 1 - allows a normal file
+  ---
+  duration_ms: 10.103933
+  type: 'test'
+  ...
+# Subtest: allows a new file in a new folder
+ok 2 - allows a new file in a new folder
+  ---
+  duration_ms: 2.106282
+  type: 'test'
+  ...
+# Subtest: rejects ../
+ok 3 - rejects ../
+  ---
+  duration_ms: 1.297984
+  type: 'test'
+  ...
+# Subtest: rejects deep ../../
+ok 4 - rejects deep ../../
+  ---
+  duration_ms: 0.876574
+  type: 'test'
+  ...
+# Subtest: rejects sneaky sub/../../
+ok 5 - rejects sneaky sub/../../
+  ---
+  duration_ms: 0.885775
+  type: 'test'
+  ...
+# Subtest: rejects absolute paths
+ok 6 - rejects absolute paths
+  ---
+  duration_ms: 2.461354
+  type: 'test'
+  ...
+# Subtest: rejects symlink pointing outside
+ok 7 - rejects symlink pointing outside
+  ---
+  duration_ms: 4.037905
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 304.268377
