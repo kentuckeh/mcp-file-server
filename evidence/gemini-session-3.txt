@@ -1,0 +1,255 @@
+✓  read_file (file-server MCP Server) read_file(path: PROJECT_STATE.md)  │
+│                                                                          │
+│ PROJECT_STATE                                                            │
+│                                                                          │
+│ Start-of-session protocol (read this first)                              │
+│  1. Read this file, then CHECKPOINTS.md, PLAN_LOG.md, DECISIONS.md.      │
+│  2. Do the next unchecked item under "Next steps".                       │
+│  3. After each step, append a line to PLAN_LOG.md.                       │
+│  4. At a milestone, add an entry to CHECKPOINTS.md and call git_commit.  │
+│  5. Before ending, update "Current status" and "Next steps".             │
+│                                                                          │
+│ Goal                                                                     │
+│ Build a Software Process Models notes pack in notes/process-models/.     │
+│                                                                          │
+│ Current status                                                           │
+│ Session 1 done: outlines for waterfall, incremental, agile plus INDEX.md │
+│ exist (CP1).                                                             │
+│ Session 1 was cut off by an API quota limit; the final steps were        │
+│ finished afterward.                                                      │
+│                                                                          │
+│ Next steps                                                               │
+│  - [x] Session 2: review every outline and add a review note (done)      │
+│  - [x] Session 2: log steps, checkpoint CP2, commit (done)               │
+│                                                                          │
+╰──────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────╮
+│ ✓  read_file (file-server MCP Server) read_file(path: CHECKPOINTS.md)    │
+│                                                                          │
+│ CHECKPOINTS                                                              │
+│ A checkpoint is a verified, working milestone, also saved with           │
+│ git_commit.                                                              │
+│                                                                          │
+│  - CP0 | 2026-10-17 | Workspace initialized with handoff files           │
+│  - CP1 | 2026-10-17 | Session 1 complete: waterfall, incremental, agile  │
+│    outlines and INDEX.md created                                         │
+│  - CP2 | 2026-10-17 | Session 2 complete: outlines reviewed, resumed     │
+│    from handoff files only                                               │
+│                                                                          │
+│                                                                          │
+│ ✓  read_file (file-server MCP Server) read_file(path: PLAN_LOG.md)       │
+│                                                                          │
+│ PLAN_LOG                                                                 │
+│ Append-only. One line per step: date | session | what was done | result  │
+│                                                                          │
+│ 2026-10-17 | setup | Created handoff files | OK                          │
+│ 2026-10-17 | session 1 | Created notes/process-models/waterfall.md       │
+│ outline | OK                                                             │
+│ 2026-10-17 | session 1 | Created notes/process-models/incremental.md     │
+│ outline | OK                                                             │
+│ 2026-10-17 | session 1 | Created notes/process-models/agile.md outline | │
+│ OK                                                                       │
+│ 2026-10-17 | session 1 | Created notes/process-models/INDEX.md linking   │
+│ all model files | OK                                                     │
+│ 2026-10-17 | session 1 | Quota limit hit; finished checkpoint and state  │
+│ update via scripted client | OK                                          │
+│ 2026-10-17 | session 2 | Reviewed and updated                            │
+│ notes/process-models/waterfall.md | OK                                   │
+│ 2026-10-17 | session 2 | Reviewed and updated                            │
+│ notes/process-models/incremental.md | OK                                 │
+│ 2026-10-17 | session 2 | Reviewed and updated                            │
+│ notes/process-models/agile.md | OK                                       │
+│                                                                          │
+│                                                                          │
+│ ✓  read_file (file-server MCP Server) read_file(path: DECISIONS.md)      │
+│                                                                          │
+│ DECISIONS                                                                │
+│ Why things were chosen, so a new session does not redo or undo them.     │
+│                                                                          │
+│  - D1 | Workspace is its own git repo, separate from the server code, so │
+│    agent commits cannot touch server code.                               │
+│  - D2 | All paths go through resolveSafe, so no tool can leave the       │
+│    workspace.                                                            │
+│  - D3 | Streamable HTTP over ngrok, with a bearer token, kept alive by   │
+│    pm2.                                                                  │
+│                                                                          │
+╰──────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────╮
+│ ✓  list_files (file-server MCP Server) list_files(path: notes/process-m… │
+│                                                                          │
+│ INDEX.md                                                                 │
+│ agile.md                                                                 │
+│ incremental.md                                                           │
+│ waterfall.md                                                             │
+╰──────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────╮
+│ ✓  read_file (file-server MCP Server) read_file(path: notes/process-mod… │
+│                                                                          │
+│ Software Process Models Notes Pack                                       │
+│                                                                          │
+│ This notes pack provides an overview and reference guide for fundamental │
+│ Software Development Life Cycle (SDLC) process models.                   │
+│                                                                          │
+│ Process Models                                                           │
+│  - Waterfall Model (waterfall.md) - Linear-sequential process model with │
+│    distinct, phased progression.                                         │
+│  - Incremental Model (incremental.md) - Model delivering software in     │
+│    successive functional increments.                                     │
+│  - Agile Model (agile.md) - Iterative model prioritizing flexibility,    │
+│    continuous feedback, and rapid releases.                              │
+│                                                                          │
+│                                                                          │
+│ ✓  read_file (file-server MCP Server) read_file(path: notes/process-mod… │
+│                                                                          │
+│ Waterfall Model                                                          │
+│                                                                          │
+│ > Reviewed in Session 2. See INDEX.md for the full list.                 │
+│                                                                          │
+│ Definition                                                               │
+│  - A linear-sequential software development lifecycle model where each   │
+│    development phase must be completed before the subsequent phase       │
+│    begins.                                                               │
+│                                                                          │
+│ When to Use                                                              │
+│  - Best suited for projects with well-defined, stable requirements,      │
+│    mature technology, and minimal likelihood of mid-project changes.     │
+│                                                                          │
+│ Pros                                                                     │
+│  - Simple, structured, and easy to understand and manage with clear      │
+│    milestones and deliverables.                                          │
+│  - High level of documentation discipline and predictable scheduling for │
+│    fixed-scope projects.                                                 │
+│                                                                          │
+│ Cons                                                                     │
+│  - Inflexible to requirement changes once development is underway.       │
+│  - Working software is produced late in the development cycle,           │
+│    increasing late-stage integration and delivery risk.                  │
+│                                                                          │
+│                                                                          │
+│ ✓  read_file (file-server MCP Server) read_file(path: notes/process-mod… │
+│                                                                          │
+│ Incremental Model                                                        │
+│                                                                          │
+│ > Reviewed in Session 2. See INDEX.md for the full list.                 │
+│                                                                          │
+│ Definition                                                               │
+│  - A software development model where the product is designed,           │
+│    implemented, and tested in successive, modular increments with each   │
+│    release adding functional capability.                                 │
+│                                                                          │
+│ When to Use                                                              │
+│  - Best suited when core system requirements are defined upfront but     │
+│    secondary features can evolve, or when early market entry is          │
+│    critical.                                                             │
+│                                                                          │
+│ Pros                                                                     │
+│  - Delivers functional software early and frequently, providing          │
+│    immediate operational value to users.                                 │
+│  - Easier to test, debug, and manage technical risk through smaller,     │
+│    modular stages.                                                       │
+│                                                                          │
+│ Cons                                                                     │
+│  - Demands strong architectural foresight and clean interfaces to avoid  │
+│    integration friction between increments.                              │
+│  - Total development cost may exceed initial estimates if increment      │
+│    scopes expand iteratively.                                            │
+│                                                                          │
+│                                                                          │
+│ ✓  read_file (file-server MCP Server) read_file(path: notes/process-mod… │
+│                                                                          │
+│ Agile Model                                                              │
+│                                                                          │
+│ > Reviewed in Session 2. See INDEX.md for the full list.                 │
+│                                                                          │
+│ Definition                                                               │
+│  - An iterative, people-oriented development model emphasizing rapid     │
+│    release cycles, flexible adaptation to change, and continuous         │
+│    customer feedback.                                                    │
+│                                                                          │
+│ When to Use                                                              │
+│  - Best suited for dynamic projects with uncertain or fast-evolving      │
+│    requirements, rapid delivery demands, and close stakeholder           │
+│    collaboration.                                                        │
+│                                                                          │
+│ Pros                                                                     │
+│  - Highly adaptive to evolving customer priorities and market demands    │
+│    throughout the project lifecycle.                                     │
+│  - Delivers functioning, tested software at regular, short intervals     │
+│    with transparent progress visibility.                                 │
+│                                                                          │
+│ Cons                                                                     │
+│  - Challenging to forecast overall project duration, budget, and final   │
+│    scope in early project stages.                                        │
+│  - Requires high stakeholder involvement, experienced self-organizing    │
+│    teams, and disciplined communication.                                 │
+│                                                                          │
+╰──────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────╮
+│ ✓  write_file (file-server MCP Server) write_file(content: # Software P… │
+│                                                                          │
+│ Wrote 2886 characters to notes/process-models/comparison.md              │
+╰──────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────╮
+│ ✓  write_file (file-server MCP Server) write_file(path: notes/process-m… │
+│                                                                          │
+│ Wrote 668 characters to notes/process-models/INDEX.md                    │
+╰──────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────╮
+│ ✓  write_file (file-server MCP Server) write_file(path: CHECKPOINTS.md,… │
+│                                                                          │
+│ Wrote 431 characters to CHECKPOINTS.md                                   │
+╰──────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────╮
+│ ✓  write_file (file-server MCP Server) write_file(content: # PROJECT_ST… │
+│                                                                          │
+│ Wrote 856 characters to PROJECT_STATE.md                                 │
+╰──────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────╮
+│ ✓  write_file (file-server MCP Server) write_file(content: # PLAN_LOGAp… │
+│                                                                          │
+│ Wrote 1182 characters to PLAN_LOG.md                                     │
+╰──────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────╮
+│ ✓  git_status (file-server MCP Server) git_status (file-server MCP Serv… │
+│                                                                          │
+│ M CHECKPOINTS.md                                                         │
+│  M PLAN_LOG.md                                                           │
+│  M PROJECT_STATE.md                                                      │
+│  M notes/process-models/INDEX.md                                         │
+│ ?? notes/process-models/comparison.md                                    │
+╰──────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────╮
+│ ✓  git_log (file-server MCP Server) git_log(limit: 5)                    │
+│                                                                          │
+│ 374a7d4 Session 2: reviewed notes, checkpoint CP2                        │
+│ 6dc070d Session 1: process models outlines, checkpoint CP1               │
+│ f1f60a9 Initial handoff files                                            │
+╰──────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────╮
+│ ✓  git_commit (file-server MCP Server) git_commit(message: Session 3: c… │
+│                                                                          │
+│ Committed: Session 3: comparison table, checkpoint CP3                   │
+╰──────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────╮
+│ ✓  git_status (file-server MCP Server) git_status (file-server MCP Serv… │
+│                                                                          │
+│ Clean: nothing to commit                                                 │
+╰──────────────────────────────────────────────────────────────────────────╯
+
+✦ Completed all steps following the start-of-session protocol:
+
+   1. Protocol Execution: Consulted PROJECT_STATE.md, CHECKPOINTS.md,
+      PLAN_LOG.md, and DECISIONS.md.
+   2. Comparison Table: Created notes/process-models/comparison.md comparing
+      Waterfall, Incremental, and Agile process models across key dimensions
+      (approach, flexibility, delivery, stakeholder involvement, risk,
+      predictability, and ideal use cases).
+   3. Index Update: Linked comparison.md under a new Comparison section in
+      notes/process-models/INDEX.md.
+   4. Handoff Tracking:
+      - Recorded checkpoint CP3 in CHECKPOINTS.md.
+      - Logged session actions in PLAN_LOG.md.
+      - Updated current status and next steps in PROJECT_STATE.md.
+   5. Git Commit: Committed workspace changes (Session 3: comparison table,
+      checkpoint CP3). Working directory is clean.
+

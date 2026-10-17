@@ -61,3 +61,6 @@ Build a Software Process Models notes pack across two sessions.
 - Session 2: a new connection that read only the four handoff files, found CP1, reviewed all three outlines with str_replace, logged each step, added CP2, and committed.
 
 Evidence is in evidence/: handoff files, tool-call log, session transcripts, workspace git log, and test output.
+
+## Session 3 (real agent)
+After the quota reset, Gemini CLI resumed from the handoff files in a fresh chat, added comparison.md, logged its steps, wrote checkpoint CP3, and committed. See evidence/gemini-session-3.txt and REPORT.md section 5.

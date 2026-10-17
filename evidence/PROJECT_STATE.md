@@ -11,9 +11,9 @@
 Build a Software Process Models notes pack in notes/process-models/.
 
 ## Current status
-Session 1 done: outlines for waterfall, incremental, agile plus INDEX.md exist (CP1).
-Session 1 was cut off by an API quota limit; the final steps were finished afterward.
+Session 3 done: notes/process-models/comparison.md created with a comparison table for Waterfall, Incremental, and Agile, linked in INDEX.md (CP3).
 
 ## Next steps
-- [x] Session 2: review every outline and add a review note (done)
-- [x] Session 2: log steps, checkpoint CP2, commit (done)
+- [x] Session 3: create comparison.md comparing Waterfall, Incremental, and Agile in a table (done)
+- [x] Session 3: link comparison.md from INDEX.md (done)
+- [x] Session 3: log steps in PLAN_LOG.md, checkpoint CP3, and commit (done)

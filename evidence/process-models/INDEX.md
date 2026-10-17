@@ -6,3 +6,6 @@ This notes pack provides an overview and reference guide for fundamental Softwar
 - [Waterfall Model](waterfall.md) - Linear-sequential process model with distinct, phased progression.
 - [Incremental Model](incremental.md) - Model delivering software in successive functional increments.
 - [Agile Model](agile.md) - Iterative model prioritizing flexibility, continuous feedback, and rapid releases.
+
+## Comparison
+- [Process Models Comparison](comparison.md) - Side-by-side comparison table analyzing Waterfall, Incremental, and Agile models across key dimensions.
