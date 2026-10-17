@@ -5,6 +5,7 @@ import { z } from "zod";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { WORKSPACE, resolveSafe } from "./sandbox.js";
+import { registerExtraTools } from "./extra-tools.js";
 
 const PORT = 3000;
 try { process.loadEnvFile(); } catch {}
@@ -110,6 +111,7 @@ function buildServer() {
     })
   );
 
+  registerExtraTools(server);
   return server;
 }
 
