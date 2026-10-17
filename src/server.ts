@@ -7,6 +7,9 @@ import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/
 import { WORKSPACE, resolveSafe } from "./sandbox.js";
 
 const PORT = 3000;
+try { process.loadEnvFile(); } catch {}
+const TOKEN = process.env.MCP_TOKEN;
+if (!TOKEN) { console.error("MCP_TOKEN is not set"); process.exit(1); }
 
 const ok = (text: string) => ({ content: [{ type: "text" as const, text }] });
 const fail = (e: unknown) => ({
@@ -111,6 +114,13 @@ function buildServer() {
 }
 
 const app = express();
+app.use((req, res, next) => {
+  if (req.headers.authorization !== `Bearer ${TOKEN}`) {
+    res.status(401).json({ error: "Unauthorized" });
+    return;
+  }
+  next();
+});
 app.use(express.json());
 
 app.post("/mcp", async (req, res) => {
