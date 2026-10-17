@@ -6,6 +6,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { WORKSPACE, resolveSafe } from "./sandbox.js";
 import { registerExtraTools } from "./extra-tools.js";
+import { withLogging } from "./logger.js";
 
 const PORT = 3000;
 try { process.loadEnvFile(); } catch {}
@@ -31,6 +32,7 @@ function safe<A>(fn: (args: A) => Promise<any>) {
 
 function buildServer() {
   const server = new McpServer({ name: "mcp-file-server", version: "1.0.0" });
+  withLogging(server);
 
   server.registerTool(
     "list_files",
